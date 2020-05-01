@@ -1,0 +1,27 @@
+  <app-cabecera></app-cabecera>
+  <app-carrusel></app-carrusel>
+  
+<div class="row row-cols-1 row-cols-md-3" >
+  <div class="col mb-4 "   *ngFor="let articulo of datosArticulos; let i = index"> 
+    <div class="card h-100 text-center" > 
+      <img class="card-img-top" src="{{articulo.imagen}}" alt="imagen del articulo">
+      <div class="card-body ">
+      <h5 class="card-title textTitulos">{{ articulo.titular }}</h5>
+      <p class="card-text"> {{ (articulo.textoArticulo.length>130)? (articulo.textoArticulo | slice:0:130)+'..':(articulo.textoArticulo) }}</p>
+      <div class="row text-left">
+        <div class="col w-20 ">
+      <p class="card-text "><img src="https://stackblitz.com/files/angular-ccyste2/github/fbronchaly/angular-electricBlog/master/src/assets/img/0_w8TA5ScSiVNWMJrQ_.jpg" alt="Avatar" class="avatar"></p>
+        </div>
+        <div class="col w-50 ">
+           <p class="card-text"><a class="nav-link active " href="#">Francisco J. Capelo</a></p>
+          </div>
+      </div>
+    <p class="card-text "><small class="text-muted">{{ articulo.fecha *1000 | date: 'MMMM, d'  }}</small></p>
+
+    <a (click)="verArticulo(i)"  class="btn btn-primary textBlanco">Ver más..</a>
+    </div>
+  </div>
+  </div>
+
+
+
