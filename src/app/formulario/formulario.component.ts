@@ -9,7 +9,7 @@ import {FirebaseService} from '../firebase.service';
 import { ValidatorService } from '../validator.service';
 
 //Modelo
-import {ArticuloModel} from '../modelos/articulo-model';
+import {ArticuloModel} from './modelos/articulo-model';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 
