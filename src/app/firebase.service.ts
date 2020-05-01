@@ -37,7 +37,13 @@ datosArticulo;
   };
 
 
-
+createAutor(value){
+  return this.firestore.collection('articulos').add({
+  nombre: value.nombre,
+  avatar: value.avatar,
+  mail: value.mail
+})
+  };
 
 
 
@@ -45,7 +51,7 @@ datosArticulo;
 
   
 leeArticulos() {
-    return this.firestore.collection('articulos').snapshotChanges();
+    return this.firestore.collection('autores').snapshotChanges();
   }
 
 

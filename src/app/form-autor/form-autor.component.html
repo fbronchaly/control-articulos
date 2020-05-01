@@ -1,0 +1,61 @@
+<div class = 'container ajustes'>
+<form autocomplete="off" [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value)">
+
+  <div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre y apellidos</label>
+      <div class="col">
+
+        <input class="form-control"
+               type="text"
+               placeholder="Nombre y apellidos"
+               formControlName="nombre"
+        >
+               
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Email</label>
+      <div class="col">
+
+        <input class="form-control"
+               type="text"
+               placeholder="Email"
+               formControlName="mail"
+        >
+              
+      </div>
+    </div>
+
+  </div>
+
+  
+          
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Avatar</label>
+    <div class="col">
+  
+ <input type="file"
+ id="file"
+ name="image"
+ accept=".png, .jpg ,.jpeg"
+(change)="procesarFile($event)"
+ autocomplete="off"
+
+ />
+        
+    </div>
+  </div>
+
+  <div class= "row" >
+<button type="button" class="nav-link btn btn-outline-success 
+ w-50" type="submit" style="text-align:center" >Enviar</button>
+
+ 
+  </div>
+
+</form>
+ </div>

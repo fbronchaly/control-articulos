@@ -18,6 +18,7 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { FirebaseService } from './firebase.service';
 import { HttpClientModule } from '@angular/common/http';
 import {NavbarComponent} from './shared/navbar/navbar.component';
+import { FormAutorComponent } from './form-autor/form-autor.component';
 
 
 
@@ -38,7 +39,7 @@ import {NavbarComponent} from './shared/navbar/navbar.component';
 
 
  	],
-  declarations: [ AppComponent, HelloComponent, FormularioComponent, CabeceraComponent, NavbarComponent ],
+  declarations: [ AppComponent, HelloComponent, FormularioComponent, CabeceraComponent, NavbarComponent, FormAutorComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ValidatorService, FirebaseService]
 })
