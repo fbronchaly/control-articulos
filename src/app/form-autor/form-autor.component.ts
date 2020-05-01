@@ -21,8 +21,8 @@ import { Autor } from '../modelos/articulo-model';
 export class FormAutorComponent implements OnInit {
 
    
-
-private autor: Autor;  // Modelo
+autor;
+//private autor: Autor;  // Modelo
   
 idKey = 'img' + Math.floor(Math.random() * 1000000);
 file: File;
@@ -43,9 +43,6 @@ selectedFiles;
 
 
   crearFormularioAutor() {
-     nombre: String;
-     avatar: String;
-     mail: String;
 
       this.autor = this.fb.group({
   
