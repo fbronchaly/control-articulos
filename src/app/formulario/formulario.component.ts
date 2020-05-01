@@ -84,6 +84,7 @@ public procesarFile(e) {
 	.then(
 	  res => {
 	   console.log ('Datos envidados');
+     alert('Datos enviados');
 	  }).catch(err => console.log ('err', err.message))
 }
 

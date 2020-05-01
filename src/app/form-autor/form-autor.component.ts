@@ -20,10 +20,8 @@ import { Autor } from '../modelos/articulo-model';
 })
 export class FormAutorComponent implements OnInit {
 
-   
+//public autor: Autor;  // Modelo
 autor;
-//private autor: Autor;  // Modelo
-  
 idKey = 'img' + Math.floor(Math.random() * 1000000);
 file: File;
 selectedFiles;
@@ -72,6 +70,7 @@ public procesarFile(e) {
 	.then(
 	  res => {
 	   console.log ('Datos envidados');
+     alert('Datos envidados')
 	  }).catch(err => console.log ('err', err.message))
 }
 
