@@ -15,8 +15,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-formulario',
-  templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.css']
+  templateUrl: './formulario.component.html'
+  
 })
 export class FormularioComponent implements OnInit {
 

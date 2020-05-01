@@ -9,7 +9,7 @@ import {FirebaseService} from '../firebase.service';
 import { ValidatorService } from '../validator.service';
 
 //Modelo
-import {ArticuloModel} from './modelos/articulo-model';
+import {ArticuloModel} from '../modelos/articulo-model';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Autor } from '../modelos/articulo-model';
 
@@ -22,7 +22,7 @@ export class FormAutorComponent implements OnInit {
 
    
 
-  private autor: Autor;  // Modelo
+private autor: Autor;  // Modelo
   
 idKey = 'img' + Math.floor(Math.random() * 1000000);
 file: File;
@@ -43,13 +43,15 @@ selectedFiles;
 
 
   crearFormularioAutor() {
-
+     nombre: String;
+     avatar: String;
+     mail: String;
 
       this.autor = this.fb.group({
   
       nombre: ['', [ Validators.required]],
       avatar: this.idKey,
-      mail: ['', [Validators.required ]],
+      mail: ['', [Validators.required ]]
       
 
       })
