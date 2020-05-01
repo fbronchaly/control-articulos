@@ -16,7 +16,7 @@
     "@firebase/app": "^0.6.2",
     "@firebase/app-types": "0.x",
     "@firebase/firestore": "^1.14.2",
-    "@ng-bootstrap/ng-bootstrap": "6.1.0",
+    "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "bootstrap": "^4.4.1",
     "core-js": "3.6.4",
     "firebase": "7.14.2",

@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ValidatorService } from './validator.service';
 import { CabeceraComponent } from './cabecera/cabecera.component';
@@ -32,7 +32,9 @@ import {NavbarComponent} from './shared/navbar/navbar.component';
   AngularFireModule.initializeApp(environment.firebase),
   HttpClientModule,
   APP_ROUTING,
-  RouterModule
+  RouterModule,
+  NgbPaginationModule,
+  NgbAlertModule
 
 
  	],
