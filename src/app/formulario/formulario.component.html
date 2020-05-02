@@ -12,7 +12,8 @@
                type="text"
                placeholder="Titular"
                formControlName="titular"
-        >
+               [class.is-invalid]="titularNovalido"><small *ngIf="titularNovalido">Inserte un titular</small>
+        
                
       </div>
     </div>
@@ -25,7 +26,8 @@
                type="text"
                placeholder="Autor"
                formControlName="autor"
-        >
+               [class.is-invalid]="autorNovalido"><small *ngIf="autorNovalido">Seleccione un autor</small>
+        
               
       </div>
     </div>
@@ -40,12 +42,13 @@
         <input class="form-control"
                type="text"
                placeholder="Titulo articulo 1"
-               formControlName="tituloArticulo1"
-        >
-               
+               formControlName="tituloArticulo1">
+        
       </div>
-             
     </div>
+    
+
+
 <div class="form-group row">
     <label class="col-2 col-form-label">Texto1</label>
     <div class="col">
@@ -53,7 +56,11 @@
       <textarea class="form-control"
              type="text"
              placeholder="Texto articulo"
-             formControlName="textoArticulo1"></textarea>
+             formControlName="textoArticulo1"
+             [class.is-invalid]="texto1Novalido"><small *ngIf="texto1Novalido">Inserte texto</small>
+          </textarea>
+             
+             
 
       </div>
              
@@ -67,6 +74,7 @@
                type="text"
                placeholder="Titulo articulo 2"
                formControlName="tituloArticulo2"
+               [class.is-invalid]=""
         >
                
       </div>
@@ -82,7 +90,8 @@
       <textarea class="form-control"
              type="text"
              placeholder="Texto articulo"
-             formControlName="textoArticulo2"></textarea>
+             formControlName="textoArticulo2"
+             [class.is-invalid]=""></textarea>
 
       </div>
              
@@ -97,6 +106,7 @@
                type="text"
                placeholder="Titulo articulo 3"
                formControlName="tituloArticulo3"
+               [class.is-invalid]=""
         >
                
       </div>
@@ -110,7 +120,8 @@
       <textarea class="form-control"
              type="text"
              placeholder="Texto articulo"
-             formControlName="textoArticulo3"></textarea>
+             formControlName="textoArticulo3"
+             [class.is-invalid]=""></textarea>
       </div>        
     </div>
 
@@ -122,6 +133,7 @@
                type="text"
                placeholder="Titulo articulo 4"
                formControlName="tituloArticulo4"
+               [class.is-invalid]=""
         >
                
       </div>
@@ -134,7 +146,9 @@
       <textarea class="form-control"
              type="text"
              placeholder="Texto articulo"
-             formControlName="textoArticulo4"></textarea>            
+             formControlName="textoArticulo4"
+             [class.is-invalid]=""
+             ></textarea>            
     </div>
 
 
@@ -156,6 +170,7 @@
  accept=".png, .jpg ,.jpeg"
 (change)="procesarFile($event)"
  autocomplete="off"
+ 
 
  />
         

@@ -11,7 +11,8 @@
                type="text"
                placeholder="Nombre y apellidos"
                formControlName="nombre"
-        >
+               [class.is-invalid]="nombreNovalido"><small *ngIf="nombreNovalido">Inserte Nombre y apellido</small>
+        
                
       </div>
     </div>
@@ -24,7 +25,8 @@
                type="text"
                placeholder="Email"
                formControlName="mail"
-        >
+              [class.is-invalid]="mailNovalido"><small *ngIf="mailNovalido">Inserte email con formato correcto</small>
+   
               
       </div>
     </div>

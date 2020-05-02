@@ -76,16 +76,41 @@ public procesarFile(e) {
 
   onSubmit(instance){
  console.log(instance); // just to check if it worked 
+ 
+  if ( this.formulario.invalid ) {
+   alert ('Rellene correctamente el formulario');
+   Object.values(this.formulario.controls).forEach (control => { 
+     control.markAsTouched(); 
+      //console.log(control);   
+   })
+ };
 
  const uploadTask = this.storage.upload('/fotosArticulos/' + this.idKey, this.file);
     console.log ('Fotografía enviada')
+    alert('Fotos enviados');
 
  this.firebaseService.createUser(instance)
 	.then(
 	  res => {
 	   console.log ('Datos envidados');
      alert('Datos enviados');
+     this.formulario.reset()
 	  }).catch(err => console.log ('err', err.message))
 }
+
+
+get titularNovalido() {
+  return  this.formulario.get('titular').invalid &&  this.formulario.get('titular').touched
+}
+get autorNovalido() {
+  return  this.formulario.get('autor').invalid &&  this.formulario.get('autor').touched
+}
+
+get texto1Novalido() {
+  return  this.formulario.get('textoArticulo1').invalid &&  this.formulario.get('textoArticulo1').touched
+}
+
+
+
 
 }

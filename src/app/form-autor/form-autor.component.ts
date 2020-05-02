@@ -12,6 +12,7 @@ import { ValidatorService } from '../validator.service';
 import {ArticuloModel} from '../modelos/articulo-model';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Autor } from '../modelos/articulo-model';
+import { forEach } from '@firebase/firestore/dist/lib/src/util/obj';
 
 @Component({
   selector: 'app-form-autor',
@@ -46,7 +47,7 @@ selectedFiles;
   
       nombre: ['', [ Validators.required]],
       avatar: this.idKey,
-      mail: ['', [Validators.required ]]
+      mail: ['', Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]
       
 
       })
@@ -63,6 +64,14 @@ public procesarFile(e) {
   onSubmit(instance){
  console.log(instance); // just to check if it worked 
 
+ if ( this.autor.invalid ) {
+   //alert ('Rellene correctamente el formulario');
+   Object.values(this.autor.controls).forEach (control => { 
+     control.markAsTouched(); 
+      //console.log(control);   
+   })
+ };
+
  const uploadTask = this.storage.upload('/fotosArticulos/' + this.idKey, this.file);
     console.log ('Fotografía enviada')
 
@@ -73,5 +82,14 @@ public procesarFile(e) {
      alert('Datos envidados')
 	  }).catch(err => console.log ('err', err.message))
 }
+
+get nombreNovalido() {
+  return  this.autor.get('nombre').invalid &&  this.autor.get('nombre').touched
+}
+
+get mailNovalido() {
+  return  this.autor.get('mail').invalid &&  this.autor.get('mail').touched
+}
+
 
 }

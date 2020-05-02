@@ -38,7 +38,7 @@ datosArticulo;
 
 
 createAutor(value){
-  return this.firestore.collection('articulos').add({
+  return this.firestore.collection('autores').add({
   nombre: value.nombre,
   avatar: value.avatar,
   mail: value.mail
