@@ -26,9 +26,11 @@ export class FormularioComponent implements OnInit {
   private datos: ArticuloModel;  // Modelo
      
  dateId = new Date();
- idKey = 'img' + Math.floor(Math.random() * 1000000);
+ idKey;
  file: File;
+ files: File[]=[];
  selectedFiles;
+
 
    
 
@@ -43,6 +45,8 @@ export class FormularioComponent implements OnInit {
     }
 
   ngOnInit() {
+     this.idKey = 'img' + Math.floor(Math.random() * 1000000);
+     console.log(this.idKey);
  }
 
 
@@ -62,6 +66,10 @@ export class FormularioComponent implements OnInit {
       textoArticulo3: ['', [ Validators.required] ],
       textoArticulo4: ['', [ Validators.required] ],
       imagen: this.idKey,
+      imagen1: this.idKey+1,
+      imagen2: this.idKey+2,
+      imagen3: this.idKey+3,
+      imagen4: this.idKey+4,
 
       })
 
@@ -69,15 +77,17 @@ export class FormularioComponent implements OnInit {
 
 public procesarFile(e) {
     this.selectedFiles = e.target.files;
-     this.file = this.selectedFiles.item(0);
+    this.files.push(this.selectedFiles);
+    console.log(this.files);
   }
 
 
 
   onSubmit(instance){
  console.log(instance); // just to check if it worked 
- 
+
   if ( this.formulario.invalid ) {
+    //Control Validaciones
    alert ('Rellene correctamente el formulario');
    Object.values(this.formulario.controls).forEach (control => { 
      control.markAsTouched(); 
@@ -85,20 +95,30 @@ public procesarFile(e) {
    })
  };
 
- const uploadTask = this.storage.upload('/fotosArticulos/' + this.idKey, this.file);
+
+// Envio de fotografías
+for (let i=0;  this.files.length>i; i++){
+      // Recoge imagen del formulario
+    this.file = this.selectedFiles.item(i);
+     console.log(this.idKey);
+     // Envia fotografias a servidor
+ const uploadTask = this.storage.upload('/fotosArticulos/' + this.idKey+[i], this.file);
+ console.log(this.idKey+[i]);
     console.log ('Fotografía enviada')
     alert('Fotos enviados');
-
+}
+//Envio de datos
  this.firebaseService.createUser(instance)
 	.then(
 	  res => {
 	   console.log ('Datos envidados');
      alert('Datos enviados');
-     this.formulario.reset()
+     this.formulario.reset();
+     this.files = [];
 	  }).catch(err => console.log ('err', err.message))
 }
-
-
+/*
+// Validaciones
 get titularNovalido() {
   return  this.formulario.get('titular').invalid &&  this.formulario.get('titular').touched
 }
@@ -110,7 +130,7 @@ get texto1Novalido() {
   return  this.formulario.get('textoArticulo1').invalid &&  this.formulario.get('textoArticulo1').touched
 }
 
-
+*/
 
 
 }

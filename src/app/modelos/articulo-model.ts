@@ -11,6 +11,11 @@ export interface ArticuloModel {
   textoArticulo3: String;
   textoArticulo4: String;
   imagen: any;
+  imagen1: any;
+  imagen2: any;
+  imagen3: any;
+  imagen4: any;
+
 }
 
 
