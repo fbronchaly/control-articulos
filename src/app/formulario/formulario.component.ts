@@ -28,11 +28,16 @@ export class FormularioComponent implements OnInit {
  dateId = new Date();
  idKey;
  file: File;
+ file1: File;
+ file2: File;
+ file3: File;
+
+
  files: File[]=[];
  selectedFiles;
-
-
-   
+ selectedFiles1;
+ selectedFiles2;
+ selectedFiles3; 
 
 
   constructor(
@@ -77,10 +82,18 @@ export class FormularioComponent implements OnInit {
 
 public procesarFile(e) {
     this.selectedFiles = e.target.files;
-    this.files.push(this.selectedFiles);
-    console.log(this.files);
   }
 
+public procesarFile1(e) {
+    this.selectedFiles1 = e.target.files;
+  }
+
+  public procesarFile2(e) {
+    this.selectedFiles2 = e.target.files;
+  }
+    public procesarFile3(e) {
+    this.selectedFiles3 = e.target.files;
+  }
 
 
   onSubmit(instance){
@@ -97,16 +110,35 @@ public procesarFile(e) {
 
 
 // Envio de fotografías
-for (let i=0;  this.files.length>i; i++){
-      // Recoge imagen del formulario
-    this.file = this.selectedFiles.item(i);
-     console.log(this.idKey);
+
+      // Recoge imagen del formulario++++++++++++++++++++
+this.file = this.selectedFiles.item(0);
      // Envia fotografias a servidor
- const uploadTask = this.storage.upload('/fotosArticulos/' + this.idKey+[i], this.file);
- console.log(this.idKey+[i]);
+ const uploadTask = this.storage.upload('/fotosArticulos/' + this.idKey, this.file);
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+this.file1 = this.selectedFiles1.item(0);
+     // Envia fotografias a servidor
+ const uploadTask1 = this.storage.upload('/fotosArticulos/' + this.idKey+1, this.file1);
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++
+this.file2= this.selectedFiles2.item(0);     
+     // Envia fotografias a servidor
+ const uploadTask2 = this.storage.upload('/fotosArticulos/' + this.idKey+2, this.file2);
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++
+this.file3= this.selectedFiles3.item(0);  
+     // Envia fotografias a servidor
+ const uploadTask3 = this.storage.upload('/fotosArticulos/' + this.idKey+3, this.file3);
+
+
+
+
+
     console.log ('Fotografía enviada')
     alert('Fotos enviados');
-}
+
 //Envio de datos
  this.firebaseService.createUser(instance)
 	.then(
