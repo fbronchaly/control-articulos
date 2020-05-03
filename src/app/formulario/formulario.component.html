@@ -34,22 +34,7 @@
 
   </div>
 
-   <div class="form-group row">
-    <label class="col-2 col-form-label">Imagen0 Articulo</label>
-    <div class="col">
-  
- <input type="file"
- id="file"
- name="image"
- accept=".png, .jpg ,.jpeg"
-(change)="procesarFile($event)"
- autocomplete="off"
- 
 
- />
-        
-    </div>
-  </div>
 
   
           <div class="form-group row">
@@ -80,22 +65,7 @@
       </div>
 
 
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Imagen1</label>
-    <div class="col">
   
- <input type="file"
- id="file2"
- name="image2"
- accept=".png, .jpg ,.jpeg"
-(change)="procesarFile1($event)"
- autocomplete="off"
- 
-
- />
-        
-    </div>
-  </div>
 
   <br>
   <br>
@@ -167,19 +137,7 @@
       </div>        
     </div>
 
-     <div class="form-group row">
-    <label class="col-2 col-form-label">Imagen2</label>
-    <div class="col">
   
- <input type="file"
- id="file2"
- name="image2"
- accept=".png, .jpg ,.jpeg"
-(change)="procesarFile2($event)"
- autocomplete="off"
- />     
-    </div>
-  </div>
 
   <div class="form-group row">
       <label class="col-2 col-form-label">Titulo Articulo 4 </label>
@@ -209,8 +167,53 @@
   </div>
 
 
-
+   <div class="form-group row">
+    <label class="col-2 col-form-label">Imagen0 Articulo</label>
+    <div class="col">
+  
+ <input type="file"
+ id="file"
+ name="image"
+ accept=".png, .jpg ,.jpeg"
+(change)="procesarFile($event)"
+ autocomplete="off"
  
+
+ />
+        
+    </div>
+  </div>
+ 
+<div class="form-group row">
+    <label class="col-2 col-form-label">Imagen1</label>
+    <div class="col">
+  
+ <input type="file"
+ id="file2"
+ name="image2"
+ accept=".png, .jpg ,.jpeg"
+(change)="procesarFile1($event)"
+ autocomplete="off"
+ 
+
+ />
+        
+    </div>
+  </div>
+
+   <div class="form-group row">
+    <label class="col-2 col-form-label">Imagen2</label>
+    <div class="col">
+  
+ <input type="file"
+ id="file2"
+ name="image2"
+ accept=".png, .jpg ,.jpeg"
+(change)="procesarFile2($event)"
+ autocomplete="off"
+ />     
+    </div>
+  </div>
 
 
 
@@ -224,7 +227,7 @@
  id="file3"
  name="image3"
  accept=".png, .jpg ,.jpeg"
-(change)="procesarFile2($event)"
+(change)="procesarFile3($event)"
  autocomplete="off"
  />     
     </div>
