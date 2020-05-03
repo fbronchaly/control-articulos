@@ -26,7 +26,7 @@ export class FormularioComponent implements OnInit {
   private datos: ArticuloModel;  // Modelo
      
  dateId = new Date();
- idKey;
+ idKey = 'img' + Math.floor(Math.random() * 1000000);
  file: File;
  file1: File;
  file2: File;
@@ -50,8 +50,8 @@ export class FormularioComponent implements OnInit {
     }
 
   ngOnInit() {
-     this.idKey = 'img' + Math.floor(Math.random() * 1000000);
-     console.log(this.idKey);
+    
+    
  }
 
 
@@ -147,6 +147,8 @@ this.file3= this.selectedFiles3.item(0);
      alert('Datos enviados');
      this.formulario.reset();
      this.files = [];
+     this.selectedFiles,this.selectedFiles1,this.selectedFiles2,this.selectedFiles3 = null;
+     
 	  }).catch(err => console.log ('err', err.message))
 }
 /*
