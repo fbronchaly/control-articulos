@@ -86,14 +86,14 @@ public procesarFile(e) {
   onSubmit(instance){
  console.log(instance); // just to check if it worked 
 
-  if ( this.formulario.invalid ) {
+/*  if ( this.formulario.invalid ) {
     //Control Validaciones
    alert ('Rellene correctamente el formulario');
    Object.values(this.formulario.controls).forEach (control => { 
      control.markAsTouched(); 
       //console.log(control);   
    })
- };
+ };*/
 
 
 // Envio de fotografías
