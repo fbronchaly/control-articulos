@@ -33,11 +33,16 @@ export class FormularioComponent implements OnInit {
  file3: File;
 
 
- files: File[]=[];
+ fotosElegidas: File[]=[];
+
+
  selectedFiles;
  selectedFiles1;
  selectedFiles2;
  selectedFiles3; 
+
+ uploadTask;
+
 
 
   constructor(
@@ -70,7 +75,7 @@ export class FormularioComponent implements OnInit {
       textoArticulo2: ['', [ Validators.required] ],
       textoArticulo3: ['', [ Validators.required] ],
       textoArticulo4: ['', [ Validators.required] ],
-      imagen: this.idKey,
+      imagen: this.idKey+0,
       imagen1: this.idKey+1,
       imagen2: this.idKey+2,
       imagen3: this.idKey+3,
@@ -82,17 +87,27 @@ export class FormularioComponent implements OnInit {
 
 public procesarFile(e) {
     this.selectedFiles = e.target.files;
+    this.file = this.selectedFiles.item(0);
+    this.fotosElegidas.push (this.file);
+    
+
   }
 
 public procesarFile1(e) {
     this.selectedFiles1 = e.target.files;
+    this.file = this.selectedFiles1.item(0);
+    this.fotosElegidas.push (this.file);
   }
 
   public procesarFile2(e) {
     this.selectedFiles2 = e.target.files;
+    this.file = this.selectedFiles2.item(0);
+    this.fotosElegidas.push (this.file);
   }
     public procesarFile3(e) {
     this.selectedFiles3 = e.target.files;
+    this.file = this.selectedFiles3.item(0);
+    this.fotosElegidas.push (this.file);
   }
 
 
@@ -112,10 +127,17 @@ public procesarFile1(e) {
 // Envio de fotografías
 
       // Recoge imagen del formulario++++++++++++++++++++
-this.file = this.selectedFiles.item(0);
-     // Envia fotografias a servidor
- const uploadTask = this.storage.upload('/fotosArticulos/' + this.idKey, this.file);
 
+     // Envia fotografias a servidor
+
+     for (let i; this.fotosElegidas.length>0; i++  ){
+       console.log (this.fotosElegidas.length)
+       console.log (this.idKey+[i]);
+
+// this.storage.upload('/fotosArticulos/' + this.idKey+[0], this.fotosElegidas[i]);
+
+     }
+/*
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 this.file1 = this.selectedFiles1.item(0);
@@ -131,7 +153,7 @@ this.file2= this.selectedFiles2.item(0);
 this.file3= this.selectedFiles3.item(0);  
      // Envia fotografias a servidor
  const uploadTask3 = this.storage.upload('/fotosArticulos/' + this.idKey+3, this.file3);
-
+*/
 
 
 
@@ -146,7 +168,6 @@ this.file3= this.selectedFiles3.item(0);
 	   console.log ('Datos envidados');
      alert('Datos enviados');
      this.formulario.reset();
-     this.files = [];
      this.selectedFiles,this.selectedFiles1,this.selectedFiles2,this.selectedFiles3 = null;
      
 	  }).catch(err => console.log ('err', err.message))
