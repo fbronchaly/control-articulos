@@ -32,6 +32,7 @@ export class FormularioComponent implements OnInit {
  file1: File;
  file2: File;
  file3: File;
+ conjuntoFile:any[]=[];
 
 
  fotosElegidas: File[]=[];
@@ -89,15 +90,19 @@ export class FormularioComponent implements OnInit {
 public procesarFile(e) {
    if(e.target.files && e.target.files.length) {
     this.selectedFiles = e.target.files;
-    this.file = this.selectedFiles.item(0);
-    this.fotosElegidas.push (this.file);
-    for (let i; this.fotosElegidas.length>0; i++  ){
-        this.storage.upload('/fotosArticulos/' + this.idKey+[i], this.file);
+   this.file = this.selectedFiles.item(0);
+   console.log (this.file);
+   this.conjuntoFile.push(this.file);
+   console.log (this.conjuntoFile);
+  
+    //this.fotosElegidas.push (this.file);
+   console.log (this.file.name);
+        this.storage.upload('/fotosArticulos/' + this.idKey, this.conjuntoFile[0]);
         console.log ('Fotografía enviada'+ " " + this.idKey );
        }
    }
-  }
-
+  
+/*
 public procesarFile1(e) {
    if(e.target.files && e.target.files.length) {
     this.selectedFiles1 = e.target.files;
@@ -122,7 +127,7 @@ public procesarFile1(e) {
     
        }
   }
-
+*/
 
   onSubmit(instance){
  console.log(instance); // just to check if it worked 
