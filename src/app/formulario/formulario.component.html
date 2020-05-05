@@ -40,7 +40,7 @@
  <input type="file"
  id="file"
  name="image"
- accept=".png, .jpg ,.jpeg"
+ multiple accept="image/*"
 (change)="procesarFile($event)"
  autocomplete="off"
  
@@ -86,9 +86,9 @@
  <input type="file"
  id="file2"
  name="image2"
- accept=".png, .jpg ,.jpeg"
 (change)="procesarFile1($event)"
  autocomplete="off"
+ multiple accept="image/*"
  
 
  />

@@ -26,7 +26,7 @@ export class FormularioComponent implements OnInit {
   private datos: ArticuloModel;  // Modelo
      
  dateId = new Date();
- idKey;
+ idKey = 'img' + Math.floor(Math.random() * 1000000);
 
  file: File;
  file1: File;
@@ -62,7 +62,7 @@ export class FormularioComponent implements OnInit {
 
 
   crearFormulario() {
-    this.idKey = 'img' + Math.floor(Math.random() * 1000000);
+   
 
       this.formulario = this.fb.group({
       fecha: this.dateId,
@@ -139,7 +139,7 @@ public procesarFile1(e) {
 if (this.fotosElegidas.length>0){
      for (let i; this.fotosElegidas.length>0; i++  ){
        console.log (this.fotosElegidas.length)
-this.storage.upload('/fotosArticulos/' + this.idKey+[0], this.fotosElegidas[i]);
+//this.storage.upload('/fotosArticulos/' + this.idKey+[0], this.fotosElegidas[i]);
 console.log ('Fotografía enviada'+ " " + this.idKey+[i] );
      }
 }
@@ -173,7 +173,7 @@ this.file3= this.selectedFiles3.item(0);
 	   console.log ('Datos envidados');
      alert('Datos enviados');
      this.formulario.reset();
-     
+     this.idKey;
      this.crearFormulario();
    
      
