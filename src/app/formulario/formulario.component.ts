@@ -28,12 +28,12 @@ export class FormularioComponent implements OnInit {
  dateId = new Date();
  idKey = 'img' + Math.floor(Math.random() * 1000000);
 
- file: any;
- file1: File;
- file2: File;
- file3: File;
+ file0: any;
+ file1: any;
+ file2: any;
+ file3: any;
 
-
+cajaFotos = [];
 
 
 contadorFotos:number=0;
@@ -89,13 +89,22 @@ contadorFotos:number=0;
 
 public procesarFile(e) {
  this.selectedFiles = e.target.files;
-   this.file = this.selectedFiles.item(0);   
+   this.file0 = this.selectedFiles.item(0);   
        }
 
-       public procesarFile2(e) {
+       public procesarFile1(e) {
  this.selectedFiles1 = e.target.files;
-   this.file2 = this.selectedFiles.item(0);   
+   this.file1 = this.selectedFiles1.item(0);   
        }
+       /*
+          public procesarFile2(e) {
+ this.selectedFiles2 = e.target.files;
+   this.file2 = this.selectedFiles2.item(0);   
+       }
+          public procesarFile3(e) {
+ this.selectedFiles3 = e.target.files;
+   this.selectedFiles3 = this.selectedFiles3.item(0);   
+       }*/
    
   
 
@@ -117,37 +126,47 @@ public procesarFile(e) {
       // Recoge imagen del formulario++++++++++++++++++++
 
      // Envia fotografias a servidor
+// Envio 1  
 
 
-
-    
-      
-this.storage.upload('/fotosArticulos/' + this.idKey, this.file);
-console.log ('Fotografía enviada'+ " " + this.idKey );
-     
 
 /*
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-this.file1 = this.selectedFiles1.item(0);
-     // Envia fotografias a servidor
- const uploadTask1 = this.storage.upload('/fotosArticulos/' + this.idKey+1, this.file1);
-
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++
-this.file2= this.selectedFiles2.item(0);     
-     // Envia fotografias a servidor
- const uploadTask2 = this.storage.upload('/fotosArticulos/' + this.idKey+2, this.file2);
-
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++
-this.file3= this.selectedFiles3.item(0);  
-     // Envia fotografias a servidor
- const uploadTask3 = this.storage.upload('/fotosArticulos/' + this.idKey+3, this.file3);
-*/
+// Envio 2  
 
 
+// Envio 3 
+if(this.file1){
+this.storage.upload('/fotosArticulos/' + this.idKey + 2, this.file2);
+console.log ('Fotografía enviada'+ " " + this.idKey + 2 );
+}
+// Envio 4  
+if(this.file3){
+this.storage.upload('/fotosArticulos/' + this.idKey + 3, this.file3);
+console.log ('Fotografía enviada'+ " " + this.idKey + 3 ); 
+}
+ */
+//Envio foto 0
+
+const promise = new Promise((resolve, reject) => {
+
+if(this.file0){
+this.storage.upload('/fotosArticulos/' + this.idKey + 0, this.file0);
+resolve ('Fotografía enviada'+ " " + this.idKey + 0 );
+  }
+
+})
+.then((value) =>{
+  console.log(value);
+});  
 
 
-    
+
+
+
+
+
+
+  
 
 //Envio de datos
  this.firebaseService.createUser(instance)
@@ -161,7 +180,7 @@ this.file3= this.selectedFiles3.item(0);
    
      
 	  }).catch(err => console.log ('err', err.message))
-}
+  }
 /*
 // Validaciones
 get titularNovalido() {
@@ -177,5 +196,4 @@ get texto1Novalido() {
 
 */
 
-
-}
+  }
