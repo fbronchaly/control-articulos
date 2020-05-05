@@ -26,7 +26,8 @@ export class FormularioComponent implements OnInit {
   private datos: ArticuloModel;  // Modelo
      
  dateId = new Date();
- idKey = 'img' + Math.floor(Math.random() * 1000000);
+ idKey;
+
  file: File;
  file1: File;
  file2: File;
@@ -61,7 +62,7 @@ export class FormularioComponent implements OnInit {
 
 
   crearFormulario() {
-
+    this.idKey = 'img' + Math.floor(Math.random() * 1000000);
 
       this.formulario = this.fb.group({
       fecha: this.dateId,
@@ -96,23 +97,23 @@ public procesarFile(e) {
 public procesarFile1(e) {
    if(e.target.files && e.target.files.length) {
     this.selectedFiles1 = e.target.files;
-    this.file = this.selectedFiles1.item(0);
-    this.fotosElegidas.push (this.file);
+    this.file1 = this.selectedFiles1.item(0);
+    this.fotosElegidas.push (this.file1);
    }
   }
 
   public procesarFile2(e) {
      if(e.target.files && e.target.files.length) {
     this.selectedFiles2 = e.target.files;
-    this.file = this.selectedFiles2.item(0);
-    this.fotosElegidas.push (this.file);
+    this.file2 = this.selectedFiles2.item(0);
+    this.fotosElegidas.push (this.file2);
      }
   }
     public procesarFile3(e) {
        if(e.target.files && e.target.files.length) {
     this.selectedFiles3 = e.target.files;
-    this.file = this.selectedFiles3.item(0);
-    this.fotosElegidas.push (this.file);
+    this.file3 = this.selectedFiles3.item(0);
+    this.fotosElegidas.push (this.file3);
        }
   }
 
@@ -138,11 +139,8 @@ public procesarFile1(e) {
 if (this.fotosElegidas.length>0){
      for (let i; this.fotosElegidas.length>0; i++  ){
        console.log (this.fotosElegidas.length)
-    
-       console.log ('Fotografía enviada'+ " " + this.idKey+[i] );
-
-// this.storage.upload('/fotosArticulos/' + this.idKey+[0], this.fotosElegidas[i]);
-
+this.storage.upload('/fotosArticulos/' + this.idKey+[0], this.fotosElegidas[i]);
+console.log ('Fotografía enviada'+ " " + this.idKey+[i] );
      }
 }
 /*
@@ -175,7 +173,9 @@ this.file3= this.selectedFiles3.item(0);
 	   console.log ('Datos envidados');
      alert('Datos enviados');
      this.formulario.reset();
-     this.selectedFiles,this.selectedFiles1,this.selectedFiles2,this.selectedFiles3 = null;
+     
+     this.crearFormulario();
+   
      
 	  }).catch(err => console.log ('err', err.message))
 }
