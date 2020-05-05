@@ -96,7 +96,7 @@ public procesarFile(e) {
  this.selectedFiles1 = e.target.files;
    this.file1 = this.selectedFiles1.item(0);   
        }
-       /*
+       
           public procesarFile2(e) {
  this.selectedFiles2 = e.target.files;
    this.file2 = this.selectedFiles2.item(0);   
@@ -104,7 +104,7 @@ public procesarFile(e) {
           public procesarFile3(e) {
  this.selectedFiles3 = e.target.files;
    this.selectedFiles3 = this.selectedFiles3.item(0);   
-       }*/
+       }
    
   
 
