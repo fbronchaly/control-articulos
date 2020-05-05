@@ -91,6 +91,10 @@ public procesarFile(e) {
     this.selectedFiles = e.target.files;
     this.file = this.selectedFiles.item(0);
     this.fotosElegidas.push (this.file);
+    for (let i; this.fotosElegidas.length>0; i++  ){
+        this.storage.upload('/fotosArticulos/' + this.idKey+[i], this.file);
+        console.log ('Fotografía enviada'+ " " + this.idKey );
+       }
    }
   }
 
@@ -99,6 +103,7 @@ public procesarFile1(e) {
     this.selectedFiles1 = e.target.files;
     this.file1 = this.selectedFiles1.item(0);
     this.fotosElegidas.push (this.file1);
+    
    }
   }
 
@@ -107,13 +112,14 @@ public procesarFile1(e) {
     this.selectedFiles2 = e.target.files;
     this.file2 = this.selectedFiles2.item(0);
     this.fotosElegidas.push (this.file2);
+   
      }
   }
     public procesarFile3(e) {
        if(e.target.files && e.target.files.length) {
     this.selectedFiles3 = e.target.files;
     this.file3 = this.selectedFiles3.item(0);
-    this.fotosElegidas.push (this.file3);
+    
        }
   }
 
@@ -136,10 +142,10 @@ public procesarFile1(e) {
       // Recoge imagen del formulario++++++++++++++++++++
 
      // Envia fotografias a servidor
-if (this.fotosElegidas.length>0){
+if (this.fotosElegidas.length>10){
      for (let i; this.fotosElegidas.length>0; i++  ){
        console.log (this.fotosElegidas.length)
-//this.storage.upload('/fotosArticulos/' + this.idKey+[0], this.fotosElegidas[i]);
+this.storage.upload('/fotosArticulos/' + this.idKey+[0], this.fotosElegidas[i]);
 console.log ('Fotografía enviada'+ " " + this.idKey+[i] );
      }
 }
