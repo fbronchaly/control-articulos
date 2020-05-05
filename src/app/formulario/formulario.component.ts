@@ -86,28 +86,34 @@ export class FormularioComponent implements OnInit {
   }
 
 public procesarFile(e) {
+   if(e.target.files && e.target.files.length) {
     this.selectedFiles = e.target.files;
     this.file = this.selectedFiles.item(0);
     this.fotosElegidas.push (this.file);
-    
-
+   }
   }
 
 public procesarFile1(e) {
+   if(e.target.files && e.target.files.length) {
     this.selectedFiles1 = e.target.files;
     this.file = this.selectedFiles1.item(0);
     this.fotosElegidas.push (this.file);
+   }
   }
 
   public procesarFile2(e) {
+     if(e.target.files && e.target.files.length) {
     this.selectedFiles2 = e.target.files;
     this.file = this.selectedFiles2.item(0);
     this.fotosElegidas.push (this.file);
+     }
   }
     public procesarFile3(e) {
+       if(e.target.files && e.target.files.length) {
     this.selectedFiles3 = e.target.files;
     this.file = this.selectedFiles3.item(0);
     this.fotosElegidas.push (this.file);
+       }
   }
 
 
@@ -129,14 +135,16 @@ public procesarFile1(e) {
       // Recoge imagen del formulario++++++++++++++++++++
 
      // Envia fotografias a servidor
-
+if (this.fotosElegidas.length>0){
      for (let i; this.fotosElegidas.length>0; i++  ){
        console.log (this.fotosElegidas.length)
-       console.log (this.idKey+[i]);
+    
+       console.log ('Fotografía enviada'+ " " + this.idKey+[i] );
 
 // this.storage.upload('/fotosArticulos/' + this.idKey+[0], this.fotosElegidas[i]);
 
      }
+}
 /*
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -158,8 +166,7 @@ this.file3= this.selectedFiles3.item(0);
 
 
 
-    console.log ('Fotografía enviada')
-    alert('Fotos enviados');
+    
 
 //Envio de datos
  this.firebaseService.createUser(instance)
