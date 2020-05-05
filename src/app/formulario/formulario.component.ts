@@ -28,15 +28,15 @@ export class FormularioComponent implements OnInit {
  dateId = new Date();
  idKey = 'img' + Math.floor(Math.random() * 1000000);
 
- file: File;
+ file: any;
  file1: File;
  file2: File;
  file3: File;
- conjuntoFile:any[]=[];
 
 
- fotosElegidas: File[]=[];
 
+
+contadorFotos:number=0;
 
  selectedFiles;
  selectedFiles1;
@@ -88,46 +88,16 @@ export class FormularioComponent implements OnInit {
   }
 
 public procesarFile(e) {
-   if(e.target.files && e.target.files.length) {
-    this.selectedFiles = e.target.files;
-   this.file = this.selectedFiles.item(0);
-   console.log (this.file);
-   this.conjuntoFile.push(this.file);
-   console.log (this.conjuntoFile);
-  
-    //this.fotosElegidas.push (this.file);
-   console.log (this.file.name);
-        this.storage.upload('/fotosArticulos/' + this.idKey, this.conjuntoFile[0]);
-        console.log ('Fotografía enviada'+ " " + this.idKey );
+ this.selectedFiles = e.target.files;
+   this.file = this.selectedFiles.item(0);   
        }
-   }
-  
-/*
-public procesarFile1(e) {
-   if(e.target.files && e.target.files.length) {
-    this.selectedFiles1 = e.target.files;
-    this.file1 = this.selectedFiles1.item(0);
-    this.fotosElegidas.push (this.file1);
-    
-   }
-  }
 
-  public procesarFile2(e) {
-     if(e.target.files && e.target.files.length) {
-    this.selectedFiles2 = e.target.files;
-    this.file2 = this.selectedFiles2.item(0);
-    this.fotosElegidas.push (this.file2);
-   
-     }
-  }
-    public procesarFile3(e) {
-       if(e.target.files && e.target.files.length) {
-    this.selectedFiles3 = e.target.files;
-    this.file3 = this.selectedFiles3.item(0);
-    
+       public procesarFile2(e) {
+ this.selectedFiles1 = e.target.files;
+   this.file2 = this.selectedFiles.item(0);   
        }
-  }
-*/
+   
+  
 
   onSubmit(instance){
  console.log(instance); // just to check if it worked 
@@ -147,13 +117,15 @@ public procesarFile1(e) {
       // Recoge imagen del formulario++++++++++++++++++++
 
      // Envia fotografias a servidor
-if (this.fotosElegidas.length>10){
-     for (let i; this.fotosElegidas.length>0; i++  ){
-       console.log (this.fotosElegidas.length)
-this.storage.upload('/fotosArticulos/' + this.idKey+[0], this.fotosElegidas[i]);
-console.log ('Fotografía enviada'+ " " + this.idKey+[i] );
-     }
-}
+
+
+
+    
+      
+this.storage.upload('/fotosArticulos/' + this.idKey, this.file);
+console.log ('Fotografía enviada'+ " " + this.idKey );
+     
+
 /*
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
