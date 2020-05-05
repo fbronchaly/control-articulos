@@ -147,8 +147,7 @@ console.log ('Fotografía enviada'+ " " + this.idKey + 3 );
  */
 //Envio foto 0
 
-const promise = new Promise((resolve, reject) => {
-
+const envioFoto1 = new Promise((resolve, reject) => {
 if(this.file0){
 this.storage.upload('/fotosArticulos/' + this.idKey + 0, this.file0);
 resolve ('Fotografía enviada'+ " " + this.idKey + 0 );
@@ -157,11 +156,53 @@ resolve ('Fotografía enviada'+ " " + this.idKey + 0 );
 })
 .then((value) =>{
   console.log(value);
+  envioFoto2
 });  
 
 
+//*************************************************************** 
+
+const envioFoto2 = new Promise((resolve, reject) => {
+if(this.file1){
+this.storage.upload('/fotosArticulos/' + this.idKey + 1, this.file1);
+resolve ('Fotografía enviada'+ " " + this.idKey + 1 );
+  }
+
+})
+.then((value) =>{
+  console.log(value);
+ envioFoto3
+}); 
 
 
+
+//*************************************************************** 
+
+const envioFoto3 = new Promise((resolve, reject) => {
+if(this.file2){
+this.storage.upload('/fotosArticulos/' + this.idKey + 2, this.file2);
+resolve ('Fotografía enviada'+ " " + this.idKey + 2 );
+  }
+
+})
+.then((value) =>{
+  console.log(value);
+ envioFoto3
+}); 
+
+//*************************************************************** 
+
+const envioFoto4 = new Promise((resolve, reject) => {
+if(this.file3){
+this.storage.upload('/fotosArticulos/' + this.idKey + 3, this.file3);
+resolve ('Fotografía enviada'+ " " + this.idKey + 3 );
+  }
+
+})
+.then((value) =>{
+  console.log(value);
+ 
+}); 
 
 
 
