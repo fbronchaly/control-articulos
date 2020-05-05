@@ -103,7 +103,7 @@ public procesarFile(e) {
        }
           public procesarFile3(e) {
  this.selectedFiles3 = e.target.files;
-   this.selectedFiles3 = this.selectedFiles3.item(0);   
+   this.file3 = this.selectedFiles3.item(0);   
        }
    
   
